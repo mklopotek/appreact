@@ -1,21 +1,20 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-console.log(Component)
-
-const appClassPrefix = 'App'
+import React from 'react'
+import DisplayName from './DisplayName';
+import DisplayArray from './DisplayArray';
 
 const App = () => (
-      <div className={`${appClassPrefix}`}>
-        <header className={`${appClassPrefix}-header`}>
-          <img src={logo} className={`${appClassPrefix}-logo`} alt={'logo'} />
-          <h1 className={`${appClassPrefix}-title`}>Welcome to React</h1>
-        </header>
-        <p className={`${appClassPrefix}-intro`}>
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+  <div>
+    <DisplayName 
+      firstname={'Magda'}
+      secondname={'Klopotek'}
+    />
+
+    
+
+    <DisplayArray
+      arr={['Magda', 'Ewelina', 'Ola']}
+    />
+  </div>
 )
 
 export default App;
