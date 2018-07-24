@@ -23,7 +23,10 @@ const BasicComponents = (props) => (
 
         />
         <hr />
-        <SinginingButtonWithBorder />
+        <SinginingButtonWithBorder
+        label="Przycisk"
+        sound="lalalalaaaa"
+        />
         <hr />
     </div>
 )
