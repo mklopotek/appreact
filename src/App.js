@@ -1,19 +1,20 @@
 import React from 'react'
-import DisplayName from './DisplayName';
-import DisplayArray from './DisplayArray';
+
+import SingingButton from './SingingButton'
+import Border from './Border'
 
 const App = () => (
   <div>
-    <DisplayName 
-      firstname={'Magda'}
-      secondname={'Klopotek'}
-    />
-
-    
-
-    <DisplayArray
-      arr={['Magda', 'Ewelina', 'Ola']}
-    />
+    <Border>
+      <SingingButton 
+        label={'Przycisk1'}
+        funClick={()=> alert('Lalalala')} 
+      />
+      <SingingButton 
+        label={'Przycisk2'}
+        funClick={()=> alert('Halololololo')}   
+      />
+    </Border>
   </div>
 )
 
