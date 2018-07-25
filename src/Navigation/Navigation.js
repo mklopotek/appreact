@@ -1,5 +1,4 @@
 import React from 'react'
-
 import SideBar from './SideBar'
 import AppBar from 'material-ui/AppBar'
 
@@ -24,7 +23,7 @@ class Navigation extends React.Component {
                 />
                 <SideBar 
                     isSideBarOpen = {this.state.isOpen}
-                    toogleSideBar = {this.toggleHandler}
+                    toggleSideBar = {this.toggleHandler}
                 />
             </div>)
     }
