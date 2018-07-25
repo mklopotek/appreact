@@ -17,6 +17,12 @@ class ToDo extends React.Component {
         this.setState({newTaskText: event.target.value})
     }
 
+    onAddNewTaskClickHandler = () => {
+        this.setState({
+            tasks: this.state.tasks.concat({isCompleted: false, text: this.state.newTaskText, key: Date.now()})
+        })
+    }
+
     render(){
         return(
             <div>
@@ -25,6 +31,7 @@ class ToDo extends React.Component {
                 <Forms 
                     newTaskText={this.state.newTaskText}
                     onNewTaskTextChanged={this.onNewTaskTextChanged}
+                    onAddNewTaskClickHandler={this.onAddNewTaskClickHandler}
                 />
 
                 <List 
