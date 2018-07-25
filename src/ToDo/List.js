@@ -1,11 +1,19 @@
 import React from 'react'
 import Task from './Task'
+import PaperRefined from '../components/PaperRefined';
 
-const List = (props) => (
-    <div>
-    <div>List</div>
-    <Task />
-    </div>
+const List = ({tasksList}) => (
+    <PaperRefined>
+
+    {tasksList.map(
+        (task, index) => 
+        <Task 
+            task={task}
+            key={index}
+        />
+    )}
+
+    </PaperRefined>
 )
 
 export default List

@@ -16,10 +16,10 @@ class ToDo extends React.Component {
             <div>
                 <h1>ToDo</h1>
                 <Forms />
-                <List />
-                <div className='ToDo__task-list'>{['Taks1', 'Task2', 'Task3']}</div>
-                <input placeholder={'New Task'}></input>
-                <button>Dodaj</button>
+                <List 
+                    tasksList={this.state.tasks}
+                />
+
             </div>
         )
 
