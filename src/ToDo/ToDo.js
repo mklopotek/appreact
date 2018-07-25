@@ -6,16 +6,27 @@ import Forms from './Forms'
 class ToDo extends React.Component {
     state = {
         tasks: [
-            {isCompleted: false, text: 'Zjedz kolacje'},
-            {isCompleted: false, text: 'Wypij wino'}
-        ]
+            {isCompleted: false, text: 'Zjedz kolacje', key: '123'},
+            {isCompleted: false, text: 'Wypij wino', key: '456'},
+            {isCompleted: false, text: 'Zrób pranie', key: '986'}
+        ],
+        newTaskText: ''
+    }
+
+    onNewTaskTextChanged = (event) => {
+        this.setState({newTaskText: event.target.value})
     }
 
     render(){
         return(
             <div>
                 <h1>ToDo</h1>
-                <Forms />
+
+                <Forms 
+                    newTaskText={this.state.newTaskText}
+                    onNewTaskTextChanged={this.onNewTaskTextChanged}
+                />
+
                 <List 
                     tasksList={this.state.tasks}
                 />

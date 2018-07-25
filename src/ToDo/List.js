@@ -5,11 +5,10 @@ import PaperRefined from '../components/PaperRefined';
 const List = ({tasksList}) => (
     <PaperRefined>
 
-    {tasksList.map(
-        (task, index) => 
+    {tasksList.map( task => 
         <Task 
             task={task}
-            key={index}
+            key={task.key}
         />
     )}
 
