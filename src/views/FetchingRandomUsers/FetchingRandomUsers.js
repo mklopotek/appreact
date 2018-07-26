@@ -1,4 +1,6 @@
 import React from 'react'
+import User from './User'
+import PaperRefined from '../../components/PaperRefined';
 
 class FetchingRandomUsers extends React.Component {
     state = {
@@ -20,21 +22,20 @@ class FetchingRandomUsers extends React.Component {
 
     render() {
         return (
-            <div>
+            <PaperRefined>
 
                 {
                     this.state.randomUserData &&
                     this.state.randomUserData
                         .map(user => (
-                            <div 
+                            <User
+                                user={user}
                                 key={user.login.uuid}
-                            >
-                                {user.name.first}
-                            </div>)   
-                        ) 
+                            />)
+                        )
                 }
 
-            </div>)
+            </PaperRefined>)
     }
 
 }
