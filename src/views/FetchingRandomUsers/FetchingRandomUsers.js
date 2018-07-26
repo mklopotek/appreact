@@ -26,17 +26,30 @@ class FetchingRandomUsers extends React.Component {
     }
 
     render() {
+        const displayUser = user => (
+            <User
+                user={user}
+                key={user.login.uuid}
+            />
+        )
+        
+
         const usersList = (
             this.state.randomUserData &&
             this.state.randomUserData
-                .filter(user => user.name.first.indexOf(this.state.searchPhrase)>= 0)
-                .map(user => (
-                    <User
-                        user={user}
-                        key={user.login.uuid}
-                    />)
-                
-                )
+                .map(displayUser)
+        )
+
+        const searchResults = (
+            this.state.randomUserData &&
+            this.state.randomUserData
+                .filter(user => (
+                    user.name.first+' '+user.name.last)
+                    .indexOf(this.state.searchPhrase) !== -1
+                    || 
+                    user.email.indexOf(this.state.searchPhrase) !== -1
+            )
+                .map(displayUser)
         )
 
         return (
@@ -46,6 +59,9 @@ class FetchingRandomUsers extends React.Component {
                       searchPhraseChangeHandler={this.searchPhraseChangeHandler}
                       searchPhrase={this.state.searchPhrase}  
                     />
+                </PaperRefined>
+                <PaperRefined>
+                  {searchResults}
                 </PaperRefined>
                 <PaperRefined>
                     {usersList}
