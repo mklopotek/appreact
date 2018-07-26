@@ -5,18 +5,36 @@ class FetchingRandomUsers extends React.Component {
         randomUserData: null
     }
 
-    componentDidMount(){
-        fetch('https://randomuser.me/api')
+    componentDidMount() {
+        fetch('https://randomuser.me/api?results=10')
             .then(response => response.json())
-            .then(data => this.setState({randomUserData: data}))
+            .then(data => {
+                console.log(data)
+                return (
+                    this.setState({ randomUserData: data.results })
+                )
+            }
+            )
     }
 
-    render(){
-        return(
-    <div>
-        <div>{JSON.stringify(this.state.randomUserData)}</div>
-        <div></div>
-    </div>)
+
+    render() {
+        return (
+            <div>
+
+                {
+                    this.state.randomUserData &&
+                    this.state.randomUserData
+                        .map(user => (
+                            <div 
+                                key={user.login.uuid}
+                            >
+                                {user.name.first}
+                            </div>)   
+                        ) 
+                }
+
+            </div>)
     }
 
 }
