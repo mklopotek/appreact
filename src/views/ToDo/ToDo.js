@@ -13,6 +13,18 @@ class ToDo extends React.Component {
         newTaskText: ''
     }
 
+    componentDidMount(){
+        const lastState = JSON.parse(localStorage.getItem('magda-to-do-state'))
+    
+        if(lastState===null)return    
+
+        this.setState(lastState)
+    }
+
+    componentWillUnmount(){
+        localStorage.setItem('magda-to-do-state', JSON.stringify(this.state))
+    }
+
     onNewTaskTextChanged = (event) => {
         this.setState({ newTaskText: event.target.value })
     }

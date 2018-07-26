@@ -36,7 +36,13 @@ const SideBar = ({ isSideBarOpen, toggleSideBar }) => (
 
     <SideBarItem
       to={'/to-do'}
-      label={'ToDo'}
+      label={'To Do'}
+      toggleSideBar={toggleSideBar}
+    />
+
+        <SideBarItem
+      to={'/fetching-random-users'}
+      label={'Random Users'}
       toggleSideBar={toggleSideBar}
     />
 
